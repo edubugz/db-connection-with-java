@@ -1,0 +1,46 @@
+  case "6":
+                    //check the size of the staffArraylist
+                    if (staffArraylist.size() > 0) {
+
+                        //intialize a buffer reader to read the user input
+                        BufferedReader input= new BufferedReader(new InputStreamReader(System.in));
+
+                        System.out.println("\n******** LIST OF REGISTERED STAFF**********");
+
+                        //variable to help label the row
+                        int count=1;
+
+                        //use a for loop to loop and display the objects in the Staff ArrayList
+                        for (Staff i:staffArraylist){
+                            Guardian j = new Guardian();
+                            System.out.println("Row"+count+": name: "+i.getName()+ ", phone number: "+i.getPhoneNumber()+", ID number: "
+                                    +i.getIdNo()+", Role:"+ i.getRole());
+                            count++;
+                        }
+
+                        ////display a selection menu with the staff object properties and ask the user to
+                        // select the number associated with the property they wish to edit
+                        System.out.println("\nInput the row number of the staff you wish to edit: ");
+                        String theSelectedStaff = input.readLine();
+                        System.out.println("what property do you want to edit\n");
+                        System.out.println("1: name");
+                        System.out.println("2: phone number");
+                        System.out.println("3: ID number");
+                        System.out.println("4: Role");
+                        System.out.println("press P to go the main menu");
+                        System.out.println("::::::press \"q\":::::");
+
+                        //read the input
+                        String selectedStaffProperty = input.readLine();
+
+                        //pass the selectedStaffproperty and the selected staff(row) to edit staff method
+                        editStaff(selectedStaffProperty,theSelectedStaff);
+
+                    }
+
+                    else{
+                        //if the array is empty
+                        System.out.println("no registered staff");
+                        promptToContinueExecution(b);
+                    }
+

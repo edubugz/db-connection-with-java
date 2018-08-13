@@ -1,0 +1,82 @@
+public static void editStaff (String selectedProperty, String theSelectedStaff) throws IOException
+    {
+        String valueEdited ="value edited successfully";
+        BufferedReader input= new BufferedReader(new InputStreamReader(System.in));
+        int k = Integer.parseInt(theSelectedStaff) - 1;
+        try {
+            switch (selectedProperty) {
+
+                case "1":
+                    System.out.println("enter the modified name");
+                    String modifiedName = input.readLine();
+                    staffArraylist.get(k).setName(modifiedName);
+                    System.out.println(valueEdited);
+                    System.out.println("new edit :"+staffArraylist.get(k).getName());
+                    System.out.println("WHOLE ROW: "+ "name: "+staffArraylist.get(k).getName()+ ", phone number: "+
+                            staffArraylist.get(k).getPhoneNumber()+", ID number: "
+                            +staffArraylist.get(k).getIdNo()+", Role:"+staffArraylist.get(k).getRole());
+
+                    promptToContinueExecution(b);
+                    break;
+                case "2":
+                    System.out.println("enter modified phone number");
+                    String modifiedPhone = input.readLine();
+                    staffArraylist.get(k).setPhoneNumber(modifiedPhone);
+                    System.out.println(valueEdited);
+                    System.out.println("new edit :"+staffArraylist.get(k).getPhoneNumber());
+                    System.out.println("WHOLE ROW: "+ "name: "+staffArraylist.get(k).getName()+ ", phone number: "+
+                            staffArraylist.get(k).getPhoneNumber()+", ID number: "
+                            +staffArraylist.get(k).getIdNo()+", Role:"+staffArraylist.get(k).getRole());
+
+                    promptToContinueExecution(b);
+                    break;
+                case "3":
+                    System.out.println("modified ID number");
+                    String modifiedId = input.readLine();
+                    staffArraylist.get(k).setIdNo(modifiedId);
+                    System.out.println(valueEdited);
+                    System.out.println(staffArraylist.get(k).getIdNo());
+                    System.out.println("WHOLE ROW: "+ "name: "+staffArraylist.get(k).getName()+ ", phone number: "+
+                            staffArraylist.get(k).getPhoneNumber()+", ID number: "
+                            +staffArraylist.get(k).getIdNo()+", Role:"+staffArraylist.get(k).getRole());
+
+                    promptToContinueExecution(b);
+                    break;
+
+                case "4":
+                    StaffRole toBeEdited = new StaffRole();
+
+                    System.out.println("enter new role name");
+                    String roleName = input.readLine();
+
+                    staffArraylist.get(k).setRole(roleName);
+                    System.out.println(valueEdited);
+                    System.out.println("new edit :"+staffArraylist.get(k).getRole());
+                    System.out.println("WHOLE ROW "+ "name: "+staffArraylist.get(k).getName()+ ", phone number: "+
+                            staffArraylist.get(k).getPhoneNumber()+", ID number: "
+                            +staffArraylist.get(k).getIdNo()+", Role:"+staffArraylist.get(k).getRole());
+
+                    promptToContinueExecution(b);
+                    break;
+
+                case "p":
+                    getUserInput(b);
+
+                case "q":
+                    System.out.println(":::::: press \"q\" to quit ::::");
+                    System.exit(0);
+
+                default:
+                    System.out.println("enter a valid choice from the menu");
+                    getUserInput(b);
+            }
+        }
+
+        catch (IOException e){
+            System.out.println(e.getMessage());
+        }
+
+        finally {
+            input.close();
+        }
+    }
